@@ -27,15 +27,18 @@ const menuItemVariants = {
 };
 
 const Header = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { currentUser, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('sv');
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
   const toggleLanguage = () => {
     const newLanguage = currentLanguage === 'sv' ? 'en' : 'sv';
+    console.log('Current language:', currentLanguage);
+    console.log('Changing to:', newLanguage);
     setCurrentLanguage(newLanguage);
-    // Add your language change logic here
+    i18n.changeLanguage(newLanguage);
+    console.log('i18n language after change:', i18n.language);
   };
 
   const handleLogout = async () => {
