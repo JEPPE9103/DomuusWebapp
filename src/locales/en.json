@@ -1,0 +1,123 @@
+{
+    "nav": {
+      "home": "Home",
+      "howItWorks": "How It Works",
+      "history": "History",
+      "getApp": "Get App",
+      "signIn": "Sign in",
+      "register": "Register",
+      "dashboard": "Dashboard",
+      "signOut": "Sign Out"
+    },
+    "home": {
+      "welcome": "Welcome to",
+      "description": "Safe child check-ins – without tracking.",
+      "cta": "Start using Domuus",
+      "alreadyAccount": "Already have an account?",
+      "loginHere": "Login here",
+      "ready": "Ready to check in?",
+      "integrity": "With Domuus, you stay informed without compromising your child's privacy.",
+      "getStarted": "Get Started Free",
+      "historyTitle": "Check-in History",
+      "historyDescription": "Track and view your child's check-ins securely.",
+      "viewHistoryButton": "View History"
+    },
+    "history": {
+      "title": "Check-in History",
+      "description": "Here you'll see a clear log of previous check-ins and check-outs. Everything is stored securely and visibly.",
+      "filters": "Filters",
+      "filterByChild": "Filter by child",
+      "filterByDate": "Filter by date",
+      "allChildren": "All children",
+      "location": "Location",
+      "checkIn": "Check-in",
+      "checkOut": "Check-out",
+      "status": {
+        "active": "Active",
+        "completed": "Completed"
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "Login to Domuus",
+        "email": "Email",
+        "password": "Password",
+        "button": "Log in",
+        "or": "or log in with",
+        "withGoogle": "Log in with Google",
+        "withFacebook": "Log in with Facebook",
+        "withLinkedIn": "Log in with LinkedIn"
+      },
+      "register": {
+        "title": "Create an Account",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "confirmPassword": "Confirm Password",
+        "button": "Register",
+        "withGoogle": "Register with Google"
+      },
+      "signIn": "Sign In",
+      "signInError": "Failed to sign in. Please check your credentials."
+    },
+    "howItWorks": {
+      "title": "How Domuus Works",
+      "description": "Domuus makes it easy to check kids in and out manually – without monitoring them. Parents get instant notifications and check-ins are safe and transparent.",
+      "step1Title": "Register your account",
+      "step1Desc": "Start by creating a free Domuus account for secure access.",
+      "step2Title": "Add your children",
+      "step2Desc": "Register your children in the app for easy check-ins.",
+      "step3Title": "Start checking in",
+      "step3Desc": "Check in and out with one tap – no GPS, just notifications.",
+      "button": "Get Started with Domuus"
+    },
+    "features": {
+      "checkin": {
+        "title": "Easy Check-in",
+        "description": "Manually check your child in or out – fast, secure, and hassle-free."
+      },
+      "notifications": {
+        "title": "Real-Time Notifications",
+        "description": "Get notified instantly when your child checks in or out – stay informed without tracking."
+      },
+      "privacy": {
+        "title": "Built for Privacy",
+        "description": "Domuus doesn't monitor – it informs. No GPS tracking, just peace of mind."
+      }
+    },
+    "about": {
+      "title": "About Domuus",
+      "paragraph1": "Domuus is an innovative solution that helps parents keep track of their children with ease. Featuring simple check-ins, instant notifications, and advanced data security, Domuus is built to create peace of mind for families.",
+      "paragraph2": "The app uses modern technology to ensure your data is safe and that you stay informed about your child's whereabouts — without any tracking."
+    },
+    "footer": {
+      "about": "Domuus makes it easy to check kids in and out – securely, manually, and without tracking. A tool for modern parents who value privacy.",
+      "rights": "All rights reserved.",
+      "sections": {
+        "product": "Product",
+        "company": "Company",
+        "resources": "Resources"
+      },
+      "links": {
+        "howItWorks": "How It Works",
+        "history": "History",
+        "pricing": "Pricing",
+        "enterprise": "Enterprise",
+        "about": "About Us",
+        "blog": "Blog",
+        "careers": "Careers",
+        "contact": "Contact",
+        "support": "Support",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "cookies": "Cookie Policy"
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "children": "Your Children",
+      "checkIns": "Recent Check-ins",
+      "noChildren": "No children registered yet",
+      "noCheckIns": "No check-ins yet"
+    }
+  }
+  

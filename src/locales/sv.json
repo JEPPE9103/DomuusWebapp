@@ -1,0 +1,123 @@
+{
+    "nav": {
+      "home": "Hem",
+      "howItWorks": "Hur det funkar",
+      "history": "Historik",
+      "getApp": "Hämta appen",
+      "signIn": "Logga in",
+      "register": "Registrera",
+      "dashboard": "Dashboard",
+      "signOut": "Logga ut"
+    },
+    "home": {
+      "welcome": "Välkommen till",
+      "description": "Trygg incheckning av barn – utan spårning.",
+      "cta": "Börja använda Domuus",
+      "alreadyAccount": "Har du redan ett konto?",
+      "loginHere": "Logga in här",
+      "ready": "Redo att börja checka in?",
+      "integrity": "Med Domuus får du koll på var ditt barn är – utan att kompromissa med deras integritet.",
+      "getStarted": "Kom igång gratis",
+      "historyTitle": "Incheckningshistorik",
+      "historyDescription": "Spåra och se ditt barns incheckningar säkert.",
+      "viewHistoryButton": "Visa historik"
+    },
+    "history": {
+      "title": "Incheckningshistorik",
+      "description": "Här kan du se en tydlig logg över tidigare in- och utcheckningar. Allt sparas tryggt och överskådligt.",
+      "filters": "Filter",
+      "filterByChild": "Filtrera på barn",
+      "filterByDate": "Filtrera på datum",
+      "allChildren": "Alla barn",
+      "location": "Plats",
+      "checkIn": "Incheckning",
+      "checkOut": "Utcheckning",
+      "status": {
+        "active": "Pågående",
+        "completed": "Avslutad"
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "Logga in till Domuus",
+        "email": "E-post",
+        "password": "Lösenord",
+        "button": "Logga in",
+        "or": "eller logga in med",
+        "withGoogle": "Logga in med Google",
+        "withFacebook": "Logga in med Facebook",
+        "withLinkedIn": "Logga in med LinkedIn"
+      },
+      "register": {
+        "title": "Skapa konto",
+        "firstName": "Förnamn",
+        "lastName": "Efternamn",
+        "confirmPassword": "Bekräfta lösenord",
+        "button": "Registrera",
+        "withGoogle": "Registrera med Google"
+      },
+      "signIn": "Logga in",
+      "signInError": "Kunde inte logga in. Kontrollera dina uppgifter."
+    },
+    "howItWorks": {
+      "title": "Så funkar Domuus",
+      "description": "Domuus gör det enkelt att checka in och ut barn manuellt – utan att övervaka dem. Föräldrar får notiser direkt och all incheckning är trygg och transparent.",
+      "step1Title": "Registrera ett konto",
+      "step1Desc": "Börja med att skapa ett gratis Domuus-konto för säker åtkomst.",
+      "step2Title": "Lägg till dina barn",
+      "step2Desc": "Registrera dina barn i appen för att enkelt kunna checka in dem.",
+      "step3Title": "Börja checka in",
+      "step3Desc": "Checka in och ut med ett tryck – inga GPS-spårningar, bara notiser.",
+      "button": "Kom igång med Domuus"
+    },
+    "features": {
+      "checkin": {
+        "title": "Enkel incheckning",
+        "description": "Checka in eller ut ditt barn manuellt – snabbt, tryggt och utan teknikstrul."
+      },
+      "notifications": {
+        "title": "Notiser i realtid",
+        "description": "Få direkt notis när ditt barn checkas in eller ut – du håller koll utan att spåra."
+      },
+      "privacy": {
+        "title": "Byggd för integritet",
+        "description": "Domuus övervakar inte – den informerar. Inga GPS-spårningar, bara trygghet."
+      }
+    },
+    "about": {
+      "title": "Om Domuus",
+      "paragraph1": "Domuus är en innovativ lösning som gör det möjligt för föräldrar att enkelt hålla koll på sina barn. Med funktioner som enkel incheckning, notifikationer och avancerad datasäkerhet är Domuus byggt för att skapa trygghet för hela familjen.",
+      "paragraph2": "Appen använder modern teknik för att säkerställa att dina data är skyddade och att du alltid är uppdaterad om dina barns aktiviteter – utan någon spårning."
+    },
+    "footer": {
+      "about": "Domuus gör det enkelt att checka in och ut barn – tryggt, manuellt och utan att spåra. Ett verktyg för moderna föräldrar som värnar om integritet.",
+      "rights": "Alla rättigheter förbehållna.",
+      "sections": {
+        "product": "Produkt",
+        "company": "Företag",
+        "resources": "Resurser"
+      },
+      "links": {
+        "howItWorks": "Hur det funkar",
+        "history": "Historik",
+        "pricing": "Prisplaner",
+        "enterprise": "För organisationer",
+        "about": "Om oss",
+        "blog": "Blogg",
+        "careers": "Jobba hos oss",
+        "contact": "Kontakt",
+        "support": "Support",
+        "privacy": "Integritetspolicy",
+        "terms": "Användarvillkor",
+        "cookies": "Cookiepolicy"
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "children": "Dina barn",
+      "checkIns": "Senaste incheckningar",
+      "noChildren": "Inga barn registrerade än",
+      "noCheckIns": "Inga incheckningar än"
+    }
+  }
+  
