@@ -1,14 +1,14 @@
 # Domuus
 
-Domuus är en modern app för att checka in och ut barn hos exempelvis vänner, släktingar eller aktiviteter. Till skillnad från GPS-baserade spårningsappar låter Domuus barnen behålla sin integritet, samtidigt som föräldrar får koll med smidiga incheckningar och realtidsnotiser.
+Domuus is a modern app for checking children in and out at places like friends' houses, relatives, or activities. Unlike GPS-based tracking apps, Domuus lets children maintain their privacy while giving parents peace of mind with convenient check-ins and real-time notifications.
 
-## Funktioner
-- Enkel manuell in-/utcheckning
-- Notiser till vårdnadshavare
-- Snygg och responsiv design (React + Tailwind)
-- Inbyggt stöd för Firebase-auth och datalagring
+## Features
+- Simple manual check-in/out
+- Notifications to guardians
+- Beautiful and responsive design (React + Tailwind)
+- Built-in support for Firebase auth and data storage
 
-## Kom igång
+## Getting Started
 ```bash
 npm install
 npm run dev
