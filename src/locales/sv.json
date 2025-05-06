@@ -2,12 +2,12 @@
     "nav": {
       "home": "Hem",
       "howItWorks": "Hur det fungerar",
-      "dashboard": "Översikt",
       "history": "Historik",
-      "profile": "Profil",
-      "login": "Logga in",
+      "signIn": "Logga in",
       "register": "Registrera",
-      "signOut": "Logga ut"
+      "dashboard": "Översikt",
+      "signOut": "Logga ut",
+      "profile": "Profil"
     },
     "home": {
       "welcome": "Välkommen till",
@@ -42,18 +42,19 @@
         "title": "Logga in på Domuus",
         "email": "E-post",
         "password": "Lösenord",
-        "submit": "Logga in",
-        "noAccount": "Inget konto?",
-        "register": "Registrera dig"
+        "button": "Logga in",
+        "or": "eller logga in med",
+        "withGoogle": "Logga in med Google",
+        "withFacebook": "Logga in med Facebook",
+        "withLinkedIn": "Logga in med LinkedIn"
       },
       "register": {
         "title": "Skapa konto",
-        "email": "E-post",
-        "password": "Lösenord",
+        "firstName": "Förnamn",
+        "lastName": "Efternamn",
         "confirmPassword": "Bekräfta lösenord",
-        "submit": "Registrera",
-        "haveAccount": "Har du redan ett konto?",
-        "login": "Logga in"
+        "button": "Registrera",
+        "withGoogle": "Registrera med Google"
       },
       "signIn": "Logga in",
       "signInError": "Kunde inte logga in. Kontrollera dina uppgifter."
@@ -93,7 +94,7 @@
     },
     "about": {
       "title": "Om Domuus",
-      "paragraph1": "Domuus är en innovativ lösning som gör det möjligt för föräldrar att enkelt hålla koll på sina barn. Med funktioner som enkel incheckning, notifikationer och avancerad datasäkerhet är Domuus byggt för att skapa trygghet för hela familjen.",
+      "paragraph1": "Domuus är en innovativ lösning som gör det möjligt för föräldrar att enkelt hålla koll på sina barn. Med funktioner som enkel incheckning, notifieringar och avancerad datasäkerhet är Domuus byggt för att skapa trygghet för hela familjen.",
       "paragraph2": "Appen använder modern teknik för att säkerställa att dina data är skyddade och att du alltid är uppdaterad om dina barns aktiviteter – utan någon spårning."
     },
     "footer": {
@@ -103,20 +104,6 @@
         "product": "Produkt",
         "company": "Företag",
         "resources": "Resurser"
-      },
-      "links": {
-        "howItWorks": "Hur det funkar",
-        "history": "Historik",
-        "pricing": "Prisplaner",
-        "enterprise": "För organisationer",
-        "about": "Om oss",
-        "blog": "Blogg",
-        "careers": "Jobba hos oss",
-        "contact": "Kontakt",
-        "support": "Support",
-        "privacy": "Integritetspolicy",
-        "terms": "Användarvillkor",
-        "cookies": "Cookiepolicy"
       }
     },
     "dashboard": {

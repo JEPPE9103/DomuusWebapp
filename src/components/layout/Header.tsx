@@ -104,12 +104,7 @@ const Header = () => {
               {t("nav.signOut")}
             </button>
           ) : (
-            <Link
-              to="/register"
-              className="bg-teal-500 hover:bg-teal-600 text-white px-3 py-1 rounded-lg transition-all duration-200 text-md font-medium cursor-pointer whitespace-nowrap"
-            >
-              {t("nav.getApp")}
-            </Link>
+            <></>
           )}
 
           <motion.button
@@ -160,12 +155,14 @@ const Header = () => {
               >
                 {t("nav.signIn")}
               </Link>
+              {/* Temporarily commented out until app is ready
               <Link
                 to="/register"
                 className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-1.5 rounded-lg transition-all duration-200 text-md font-medium cursor-pointer whitespace-nowrap"
               >
                 {t("nav.getApp")}
               </Link>
+              */}
             </>
           )}
           <button
@@ -245,12 +242,14 @@ const Header = () => {
                     >
                       {t("nav.signIn")}
                     </Link>
+                    {/* Temporarily commented out until app is ready
                     <Link
                       to="/register"
                       className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-2 rounded-lg transition-all duration-200 text-lg font-medium cursor-pointer whitespace-nowrap"
                     >
                       {t("nav.getApp")}
                     </Link>
+                    */}
                   </>
                 )}
                 <button
