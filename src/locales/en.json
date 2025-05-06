@@ -7,7 +7,8 @@
       "signIn": "Sign in",
       "register": "Register",
       "dashboard": "Dashboard",
-      "signOut": "Sign Out"
+      "signOut": "Sign Out",
+      "profile": "Profile"
     },
     "home": {
       "welcome": "Welcome to",
@@ -114,10 +115,49 @@
     },
     "dashboard": {
       "title": "Dashboard",
-      "children": "Your Children",
-      "checkIns": "Recent Check-ins",
-      "noChildren": "No children registered yet",
-      "noCheckIns": "No check-ins yet"
+      "children": "My Children",
+      "checkIns": "Check-ins"
+    },
+    "common": {
+      "loading": "Loading...",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "add": "Add",
+      "error": "Error",
+      "success": "Success"
+    },
+    "children": {
+      "addNew": "Add New Child",
+      "name": "Name",
+      "birthDate": "Birth Date",
+      "add": "Add Child"
+    },
+    "guests": {
+      "title": "Guests",
+      "addNew": "Add New Guest",
+      "name": "Guest Name",
+      "parentUserId": "Parent User ID",
+      "status": "Status",
+      "lastUpdate": "Last Update",
+      "actions": "Actions",
+      "add": "Add Guest",
+      "checkIn": "Check In",
+      "checkOut": "Check Out"
+    },
+    "profile": {
+      "title": "Profile Settings",
+      "personalInfo": "Personal Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "emailNote": "Email cannot be changed",
+      "phone": "Phone Number",
+      "preferences": "Preferences",
+      "notifications": "Enable notifications",
+      "language": "Language",
+      "success": "Profile updated successfully"
     }
   }
   

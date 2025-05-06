@@ -45,8 +45,8 @@ const Register = () => {
       // Register user
       await register(formData.email, formData.password, username);
       
-      // Redirect to home page on success
-      navigate('/');
+      // Redirect to dashboard on success
+      navigate('/dashboard');
     } catch (err: any) {
       setError(err.message);
     } finally {

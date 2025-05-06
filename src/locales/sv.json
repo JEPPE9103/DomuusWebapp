@@ -1,12 +1,12 @@
 {
     "nav": {
       "home": "Hem",
-      "howItWorks": "Hur det funkar",
+      "howItWorks": "Hur det fungerar",
+      "dashboard": "Översikt",
       "history": "Historik",
-      "getApp": "Hämta appen",
-      "signIn": "Logga in",
+      "profile": "Profil",
+      "login": "Logga in",
       "register": "Registrera",
-      "dashboard": "Dashboard",
       "signOut": "Logga ut"
     },
     "home": {
@@ -39,49 +39,56 @@
     },
     "auth": {
       "login": {
-        "title": "Logga in till Domuus",
+        "title": "Logga in på Domuus",
         "email": "E-post",
         "password": "Lösenord",
-        "button": "Logga in",
-        "or": "eller logga in med",
-        "withGoogle": "Logga in med Google",
-        "withFacebook": "Logga in med Facebook",
-        "withLinkedIn": "Logga in med LinkedIn"
+        "submit": "Logga in",
+        "noAccount": "Inget konto?",
+        "register": "Registrera dig"
       },
       "register": {
         "title": "Skapa konto",
-        "firstName": "Förnamn",
-        "lastName": "Efternamn",
+        "email": "E-post",
+        "password": "Lösenord",
         "confirmPassword": "Bekräfta lösenord",
-        "button": "Registrera",
-        "withGoogle": "Registrera med Google"
+        "submit": "Registrera",
+        "haveAccount": "Har du redan ett konto?",
+        "login": "Logga in"
       },
       "signIn": "Logga in",
       "signInError": "Kunde inte logga in. Kontrollera dina uppgifter."
     },
     "howItWorks": {
-      "title": "Så funkar Domuus",
-      "description": "Domuus gör det enkelt att checka in och ut barn manuellt – utan att övervaka dem. Föräldrar får notiser direkt och all incheckning är trygg och transparent.",
-      "step1Title": "Registrera ett konto",
+      "title": "Hur Domuus fungerar",
+      "description": "Domuus gör det enkelt att checka in och ut barn manuellt – utan övervakning. Föräldrar får omedelbara notifieringar och incheckningar är säkra och transparenta.",
+      "step1Title": "Registrera ditt konto",
       "step1Desc": "Börja med att skapa ett gratis Domuus-konto för säker åtkomst.",
       "step2Title": "Lägg till dina barn",
-      "step2Desc": "Registrera dina barn i appen för att enkelt kunna checka in dem.",
+      "step2Desc": "Registrera dina barn i appen för enkla incheckningar.",
       "step3Title": "Börja checka in",
-      "step3Desc": "Checka in och ut med ett tryck – inga GPS-spårningar, bara notiser.",
+      "step3Desc": "Checka in och ut med ett klick – ingen GPS, bara notifieringar.",
       "button": "Kom igång med Domuus"
     },
     "features": {
       "checkin": {
         "title": "Enkel incheckning",
-        "description": "Checka in eller ut ditt barn manuellt – snabbt, tryggt och utan teknikstrul."
+        "description": "Checka manuellt in eller ut ditt barn – snabbt, säkert och enkelt."
       },
       "notifications": {
-        "title": "Notiser i realtid",
-        "description": "Få direkt notis när ditt barn checkas in eller ut – du håller koll utan att spåra."
+        "title": "Notifieringar i realtid",
+        "description": "Få notifieringar direkt när ditt barn checkar in eller ut – håll dig informerad utan spårning."
       },
       "privacy": {
         "title": "Byggd för integritet",
-        "description": "Domuus övervakar inte – den informerar. Inga GPS-spårningar, bara trygghet."
+        "description": "Domuus övervakar inte – den informerar. Ingen GPS-spårning, bara trygghet."
+      },
+      "safety": {
+        "title": "Trygghet",
+        "description": "Säkra och pålitliga incheckningar för dina barn"
+      },
+      "ease": {
+        "title": "Enkelt",
+        "description": "Snabb och enkel incheckning med bara några klick"
       }
     },
     "about": {
@@ -113,11 +120,64 @@
       }
     },
     "dashboard": {
-      "title": "Dashboard",
-      "children": "Dina barn",
-      "checkIns": "Senaste incheckningar",
-      "noChildren": "Inga barn registrerade än",
-      "noCheckIns": "Inga incheckningar än"
+      "title": "Översikt",
+      "noChildren": "Inga barn registrerade",
+      "addChildToStart": "Lägg till ett barn för att komma igång",
+      "welcome": "Välkommen till Domuus",
+      "description": "Enkel och trygg incheckning av barn"
+    },
+    "common": {
+      "checkIn": "Checka in",
+      "checkOut": "Checka ut",
+      "checkedIn": "Incheckad",
+      "checkedOut": "Utcheckad",
+      "lastCheckIn": "Senaste incheckning",
+      "add": "Lägg till",
+      "save": "Spara",
+      "cancel": "Avbryt",
+      "delete": "Ta bort",
+      "edit": "Redigera",
+      "loading": "Laddar...",
+      "error": "Ett fel uppstod",
+      "success": "Lyckades!"
+    },
+    "children": {
+      "title": "Barn",
+      "name": "Namn",
+      "birthDate": "Födelsedatum",
+      "addChild": "Lägg till barn",
+      "editChild": "Redigera barn",
+      "deleteChild": "Ta bort barn"
+    },
+    "guests": {
+      "title": "Gäster",
+      "addNew": "Lägg till ny gäst",
+      "name": "Gästens namn",
+      "parentUserId": "Förälders användar-ID",
+      "status": "Status",
+      "lastUpdate": "Senast uppdaterad",
+      "actions": "Åtgärder",
+      "add": "Lägg till gäst",
+      "checkIn": "Checka in",
+      "checkOut": "Checka ut"
+    },
+    "profile": {
+      "title": "Min profil",
+      "personalInfo": "Personlig information",
+      "firstName": "Förnamn",
+      "lastName": "Efternamn",
+      "email": "E-post",
+      "phone": "Telefonnummer",
+      "preferences": "Inställningar",
+      "notifications": "Aktivera notifieringar",
+      "language": "Språk",
+      "updateSuccess": "Profil uppdaterad!",
+      "management": "Hantera barn och gäster",
+      "addFriend": "Lägg till vän",
+      "friendName": "Vännens namn",
+      "parentPhone": "Förälders telefonnummer",
+      "friendsList": "Vänner",
+      "friendAdded": "Vän tillagd!"
     }
   }
   

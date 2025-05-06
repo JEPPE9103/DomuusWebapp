@@ -59,9 +59,39 @@ const Header = () => {
           Domuus
         </Link>
 
-        {/* Desktop Navigation (no more Home or History links) */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8 px-4 mx-auto flex-grow justify-center">
-          {/* No links here since we just have Domuus logo */}
+          {currentUser ? (
+            <>
+              <Link
+                to="/dashboard"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                {t("nav.dashboard")}
+              </Link>
+              <Link
+                to="/history"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                {t("nav.history")}
+              </Link>
+              <Link
+                to="/profile"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                {t("nav.profile")}
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/how-it-works"
+                className="text-white/80 hover:text-white transition-colors"
+              >
+                {t("nav.howItWorks")}
+              </Link>
+            </>
+          )}
         </nav>
 
         {/* Mobile Actions */}
@@ -116,20 +146,12 @@ const Header = () => {
         {/* Right side buttons (desktop) */}
         <div className="hidden md:flex items-center space-x-6">
           {currentUser ? (
-            <>
-              <Link
-                to="/dashboard"
-                className="text-white/80 text-md hover:text-white transition-colors cursor-pointer"
-              >
-                {t("nav.dashboard")}
-              </Link>
-              <button
-                onClick={handleLogout}
-                className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-1.5 rounded-lg transition-all duration-200 text-md font-medium cursor-pointer whitespace-nowrap"
-              >
-                {t("nav.signOut")}
-              </button>
-            </>
+            <button
+              onClick={handleLogout}
+              className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-1.5 rounded-lg transition-all duration-200 text-md font-medium cursor-pointer whitespace-nowrap"
+            >
+              {t("nav.signOut")}
+            </button>
           ) : (
             <>
               <Link
@@ -170,8 +192,36 @@ const Header = () => {
                 closed: { opacity: 0, y: -20 }
               }}
             >
-              <div className="flex flex-col items-center justify-center flex-1">
-                {/* No more items in mobile menu */}
+              <div className="flex flex-col items-center justify-center flex-1 space-y-6">
+                {currentUser ? (
+                  <>
+                    <Link
+                      to="/dashboard"
+                      className="text-white/80 text-xl font-medium hover:text-white transition-colors cursor-pointer"
+                    >
+                      {t("nav.dashboard")}
+                    </Link>
+                    <Link
+                      to="/history"
+                      className="text-white/80 text-xl font-medium hover:text-white transition-colors cursor-pointer"
+                    >
+                      {t("nav.history")}
+                    </Link>
+                    <Link
+                      to="/profile"
+                      className="text-white/80 text-xl font-medium hover:text-white transition-colors cursor-pointer"
+                    >
+                      {t("nav.profile")}
+                    </Link>
+                  </>
+                ) : (
+                  <Link
+                    to="/how-it-works"
+                    className="text-white/80 text-xl font-medium hover:text-white transition-colors cursor-pointer"
+                  >
+                    {t("nav.howItWorks")}
+                  </Link>
+                )}
               </div>
               <motion.div
                 className="flex flex-col items-center space-y-6"
@@ -181,20 +231,12 @@ const Header = () => {
                 }}
               >
                 {currentUser ? (
-                  <>
-                    <Link
-                      to="/dashboard"
-                      className="text-white/80 text-xl font-medium hover:text-white transition-colors cursor-pointer"
-                    >
-                      {t("nav.dashboard")}
-                    </Link>
-                    <button
-                      onClick={handleLogout}
-                      className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-2 rounded-lg transition-all duration-200 text-lg font-medium cursor-pointer whitespace-nowrap"
-                    >
-                      {t("nav.signOut")}
-                    </button>
-                  </>
+                  <button
+                    onClick={handleLogout}
+                    className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-2 rounded-lg transition-all duration-200 text-lg font-medium cursor-pointer whitespace-nowrap"
+                  >
+                    {t("nav.signOut")}
+                  </button>
                 ) : (
                   <>
                     <Link

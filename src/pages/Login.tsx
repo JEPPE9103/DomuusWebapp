@@ -31,7 +31,7 @@ const Login = () => {
 
     try {
       await login(formData.email, formData.password);
-      navigate('/'); // Redirect to home page after successful login
+      navigate('/dashboard'); // Redirect to dashboard after successful login
     } catch (err: any) {
       setError(err.message);
     } finally {
