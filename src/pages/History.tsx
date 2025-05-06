@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 import BackgroundShapes from "../components/layout/BackgroundShapes";
@@ -21,48 +21,123 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PersonIcon from "@mui/icons-material/Person";
+import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
+import { db } from "../config/firebase";
+import { useAuth } from "../context/AuthContext";
 
+interface Child {
+  id: string;
+  name: string;
+  birthDate: string;
+}
 
-interface CheckInRecord {
-  id: number;
+interface Friend {
+  id: string;
+  name: string;
+  parentPhone: string;
+  status: 'in' | 'out';
+  timestamp: any;
+}
+
+interface HistoryRecord {
+  id: string;
   childName: string;
-  location: string;
-  checkInTime: string;
-  checkOutTime: string | null;
-  status: "active" | "completed";
+  friendName: string;
+  status: 'in' | 'out';
+  timestamp: any;
 }
 
 const History = () => {
   const { t } = useTranslation();
+  const { currentUser } = useAuth();
   const [selectedChild, setSelectedChild] = useState("all");
   const [selectedDate, setSelectedDate] = useState("");
+  const [children, setChildren] = useState<Child[]>([]);
+  const [history, setHistory] = useState<HistoryRecord[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  const historyData: CheckInRecord[] = [
-    {
-      id: 1,
-      childName: "Emma",
-      location: "Annas hem",
-      checkInTime: "2024-03-15 14:30",
-      checkOutTime: "2024-03-15 17:00",
-      status: "completed",
-    },
-    {
-      id: 2,
-      childName: "Lucas",
-      location: "Skolan",
-      checkInTime: "2024-03-15 08:00",
-      checkOutTime: null,
-      status: "active",
-    },
-  ];
+  const fetchChildren = async () => {
+    if (!currentUser) return;
 
-  const filtered = historyData.filter((record) => {
+    try {
+      const childrenRef = collection(db, 'users', currentUser.uid, 'children');
+      const childrenSnapshot = await getDocs(childrenRef);
+      const childrenData = childrenSnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as Child[];
+      setChildren(childrenData);
+    } catch (error) {
+      console.error('Error fetching children:', error);
+      setError(t('common.error'));
+    }
+  };
+
+  const fetchHistory = async () => {
+    if (!currentUser) return;
+
+    try {
+      const historyRecords: HistoryRecord[] = [];
+      
+      // Fetch history for each child
+      for (const child of children) {
+        const friendsRef = collection(db, 'users', currentUser.uid, 'children', child.id, 'friends');
+        const friendsSnapshot = await getDocs(friendsRef);
+        
+        friendsSnapshot.docs.forEach(doc => {
+          const friend = doc.data() as Friend;
+          if (friend.timestamp) {
+            historyRecords.push({
+              id: doc.id,
+              childName: child.name,
+              friendName: friend.name,
+              status: friend.status,
+              timestamp: friend.timestamp
+            });
+          }
+        });
+      }
+
+      // Sort by timestamp
+      historyRecords.sort((a, b) => b.timestamp.toDate().getTime() - a.timestamp.toDate().getTime());
+      setHistory(historyRecords);
+    } catch (error) {
+      console.error('Error fetching history:', error);
+      setError(t('common.error'));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (currentUser) {
+      fetchChildren();
+    }
+  }, [currentUser]);
+
+  useEffect(() => {
+    if (children.length > 0) {
+      fetchHistory();
+    }
+  }, [children]);
+
+  const filtered = history.filter((record) => {
     const matchChild =
       selectedChild === "all" ||
-      record.childName.toLowerCase() === selectedChild;
-    const matchDate = !selectedDate || record.checkInTime.startsWith(selectedDate);
+      record.childName.toLowerCase() === selectedChild.toLowerCase();
+    const matchDate = !selectedDate || 
+      record.timestamp.toDate().toISOString().split('T')[0] === selectedDate;
     return matchChild && matchDate;
   });
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center">
+        <div className="text-teal-400 text-xl">{t('common.loading')}</div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full min-h-screen bg-[#1a1a1a] text-white relative overflow-hidden">
@@ -89,7 +164,7 @@ const History = () => {
       </div>
 
       {/* Filters */}
-      <Box className="relative z-10 max-w-4xl mx-auto px-4 pb-10">
+      <div className="max-w-7xl mx-auto px-4 pb-12">
         <Paper elevation={3} sx={{ p: 3, mb: 4, borderRadius: 3, bgcolor: 'rgba(0, 0, 0, 0.3)', backdropFilter: 'blur(10px)' }}>
           <Box display="flex" alignItems="center" mb={2}>
             <FilterListIcon sx={{ color: '#2dd4bf', mr: 1 }} />
@@ -116,8 +191,11 @@ const History = () => {
                 }}
               >
                 <MenuItem value="all">{t("history.allChildren")}</MenuItem>
-                <MenuItem value="emma">Emma</MenuItem>
-                <MenuItem value="lucas">Lucas</MenuItem>
+                {children.map(child => (
+                  <MenuItem key={child.id} value={child.name.toLowerCase()}>
+                    {child.name}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
 
@@ -144,7 +222,7 @@ const History = () => {
         </Paper>
 
         {/* Results */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {filtered.map((item) => (
             <Card 
               key={item.id} 
@@ -170,45 +248,39 @@ const History = () => {
                     </Typography>
                   </Box>
                   <Chip
-                    label={t(`history.status.${item.status}`)}
-                    color={item.status === "active" ? "success" : "default"}
+                    label={t(`history.status.${item.status === 'in' ? 'active' : 'completed'}`)}
+                    color={item.status === 'in' ? "success" : "default"}
                     size="small"
                     sx={{
-                      bgcolor: item.status === "active" ? 'rgba(34, 197, 94, 0.2)' : 'rgba(255, 255, 255, 0.1)',
-                      color: item.status === "active" ? '#22c55e' : 'white',
+                      bgcolor: item.status === 'in' ? 'rgba(34, 197, 94, 0.2)' : 'rgba(255, 255, 255, 0.1)',
+                      color: item.status === 'in' ? '#22c55e' : 'white',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
                     }}
                   />
                 </Box>
-                <Box display="flex" flexDirection="column" gap={1} mt={1}>
+                <Box display="flex" flexDirection="column" gap={1}>
                   <Box display="flex" alignItems="center" gap={1}>
-                    <LocationOnIcon sx={{ color: '#2dd4bf' }} />
+                    <PersonIcon sx={{ color: '#2dd4bf' }} />
                     <Typography variant="body2" sx={{ color: 'white' }}>
-                      <strong>{t("history.location")}:</strong> {item.location}
+                      <strong>{t("history.friend")}:</strong> {item.friendName}
                     </Typography>
                   </Box>
                   <Box display="flex" alignItems="center" gap={1}>
                     <AccessTimeIcon sx={{ color: '#2dd4bf' }} />
                     <Typography variant="body2" sx={{ color: 'white' }}>
-                      <strong>{t("history.checkIn")}:</strong> {item.checkInTime}
+                      <strong>{item.status === 'in' ? t("history.checkIn") : t("history.checkOut")}:</strong>{" "}
+                      {item.timestamp.toDate().toLocaleString()}
                     </Typography>
                   </Box>
-                  {item.checkOutTime && (
-                    <Box display="flex" alignItems="center" gap={1}>
-                      <AccessTimeIcon sx={{ color: '#2dd4bf' }} />
-                      <Typography variant="body2" sx={{ color: 'white' }}>
-                        <strong>{t("history.checkOut")}:</strong> {item.checkOutTime}
-                      </Typography>
-                    </Box>
-                  )}
                 </Box>
               </CardContent>
             </Card>
           ))}
         </div>
-      </Box>
+      </div>
     </div>
   );
 };
 
 export default History;
+
