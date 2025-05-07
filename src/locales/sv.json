@@ -111,7 +111,8 @@
       "noChildren": "Inga barn registrerade",
       "addChildToStart": "Lägg till ett barn för att komma igång",
       "welcome": "Välkommen till Domuus",
-      "description": "Enkel och trygg incheckning av barn"
+      "description": "Enkel och trygg incheckning av barn",
+      "children": "Mina barn"
     },
     "common": {
       "checkIn": "Checka in",
@@ -133,8 +134,11 @@
       "name": "Namn",
       "birthDate": "Födelsedatum",
       "addChild": "Lägg till barn",
+      "addNewChild": "Lägg till nytt barn",
       "editChild": "Redigera barn",
-      "deleteChild": "Ta bort barn"
+      "deleteChild": "Ta bort barn",
+      "noChildren": "Inga barn tillagda",
+      "addFirstChild": "Lägg till ditt första barn"
     },
     "guests": {
       "title": "Gäster",
@@ -164,7 +168,24 @@
       "friendName": "Vännens namn",
       "parentPhone": "Förälders telefonnummer",
       "friendsList": "Vänner",
-      "friendAdded": "Vän tillagd!"
+      "friendAdded": "Vän tillagd!",
+      "saveChanges": "Spara ändringar",
+      "cancel": "Avbryt",
+      "children": "Mina barn",
+      "guests": "Mina gäster",
+      "addNewChild": "Lägg till nytt barn",
+      "editChild": "Redigera barn",
+      "deleteChild": "Ta bort barn",
+      "noChildren": "Inga barn tillagda",
+      "addFirstChild": "Lägg till ditt första barn",
+      "birthDate": "Födelsedatum",
+      "guestName": "Gästens namn",
+      "guestStatus": "Status",
+      "lastUpdate": "Senast uppdaterad",
+      "actions": "Åtgärder",
+      "checkIn": "Checka in",
+      "checkOut": "Checka ut",
+      "childName": "Barnets namn"
     }
   }
   

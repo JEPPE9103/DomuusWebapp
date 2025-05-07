@@ -147,17 +147,39 @@
       "checkOut": "Check Out"
     },
     "profile": {
-      "title": "Profile Settings",
+      "title": "My Profile",
       "personalInfo": "Personal Information",
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email",
-      "emailNote": "Email cannot be changed",
       "phone": "Phone Number",
       "preferences": "Preferences",
       "notifications": "Enable notifications",
       "language": "Language",
-      "success": "Profile updated successfully"
+      "updateSuccess": "Profile updated!",
+      "management": "Manage Children and Guests",
+      "addFriend": "Add Friend",
+      "friendName": "Friend's Name",
+      "parentPhone": "Parent's Phone Number",
+      "friendsList": "Friends",
+      "friendAdded": "Friend added!",
+      "saveChanges": "Save Changes",
+      "cancel": "Cancel",
+      "children": "My Children",
+      "guests": "My Guests",
+      "addNewChild": "Add New Child",
+      "editChild": "Edit Child",
+      "deleteChild": "Delete Child",
+      "noChildren": "No children added",
+      "addFirstChild": "Add your first child",
+      "birthDate": "Birth Date",
+      "guestName": "Guest Name",
+      "guestStatus": "Status",
+      "lastUpdate": "Last Update",
+      "actions": "Actions",
+      "checkIn": "Check In",
+      "checkOut": "Check Out",
+      "childName": "Child's Name"
     }
-  }
+}
   

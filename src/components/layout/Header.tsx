@@ -34,19 +34,21 @@ const Header = () => {
 
   const toggleLanguage = () => {
     const newLanguage = currentLanguage === 'sv' ? 'en' : 'sv';
-    console.log('Current language:', currentLanguage);
-    console.log('Changing to:', newLanguage);
     setCurrentLanguage(newLanguage);
     i18n.changeLanguage(newLanguage);
-    console.log('i18n language after change:', i18n.language);
   };
 
   const handleLogout = async () => {
     try {
       await logout();
+      setIsMenuOpen(false);
     } catch (error) {
       console.error('Failed to log out:', error);
     }
+  };
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
   };
 
   const languageToggleLabel = currentLanguage === 'sv' ? 'EN' : 'SV';
@@ -65,19 +67,19 @@ const Header = () => {
             <>
               <Link
                 to="/dashboard"
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-teal-400 hover:text-teal-300 transition-colors"
               >
                 {t("nav.dashboard")}
               </Link>
               <Link
                 to="/history"
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-teal-400 hover:text-teal-300 transition-colors"
               >
                 {t("nav.history")}
               </Link>
               <Link
                 to="/profile"
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-teal-400 hover:text-teal-300 transition-colors"
               >
                 {t("nav.profile")}
               </Link>
@@ -86,7 +88,7 @@ const Header = () => {
             <>
               <Link
                 to="/how-it-works"
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-teal-400 hover:text-teal-300 transition-colors"
               >
                 {t("nav.howItWorks")}
               </Link>
@@ -194,19 +196,22 @@ const Header = () => {
                   <>
                     <Link
                       to="/dashboard"
-                      className="text-white/80 text-xl font-medium hover:text-white transition-colors cursor-pointer"
+                      onClick={handleLinkClick}
+                      className="text-teal-400 text-xl font-medium hover:text-teal-300 transition-colors cursor-pointer"
                     >
                       {t("nav.dashboard")}
                     </Link>
                     <Link
                       to="/history"
-                      className="text-white/80 text-xl font-medium hover:text-white transition-colors cursor-pointer"
+                      onClick={handleLinkClick}
+                      className="text-teal-400 text-xl font-medium hover:text-teal-300 transition-colors cursor-pointer"
                     >
                       {t("nav.history")}
                     </Link>
                     <Link
                       to="/profile"
-                      className="text-white/80 text-xl font-medium hover:text-white transition-colors cursor-pointer"
+                      onClick={handleLinkClick}
+                      className="text-teal-400 text-xl font-medium hover:text-teal-300 transition-colors cursor-pointer"
                     >
                       {t("nav.profile")}
                     </Link>
@@ -214,7 +219,8 @@ const Header = () => {
                 ) : (
                   <Link
                     to="/how-it-works"
-                    className="text-white/80 text-xl font-medium hover:text-white transition-colors cursor-pointer"
+                    onClick={handleLinkClick}
+                    className="text-teal-400 text-xl font-medium hover:text-teal-300 transition-colors cursor-pointer"
                   >
                     {t("nav.howItWorks")}
                   </Link>

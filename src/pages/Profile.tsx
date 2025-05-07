@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { collection, query, where, getDocs, doc, getDoc, updateDoc, addDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, doc, getDoc, updateDoc, addDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { useTranslation } from 'react-i18next';
 import ChildForm from '../components/children/ChildForm';
@@ -209,6 +209,22 @@ const Profile = () => {
     }
   };
 
+  const handleDeleteChild = async (childId: string) => {
+    if (!currentUser) return;
+    
+    if (window.confirm(t('profile.deleteChild'))) {
+      try {
+        const childRef = doc(db, 'users', currentUser.uid, 'children', childId);
+        await deleteDoc(childRef);
+        await fetchChildren();
+        setSuccess(t('common.success'));
+      } catch (error) {
+        console.error('Error deleting child:', error);
+        setError(t('common.error'));
+      }
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center">
@@ -336,24 +352,34 @@ const Profile = () => {
 
           {/* Children Section */}
           <section className="mb-12 mt-8">
-            <h2 className="text-2xl text-white mb-4">{t('dashboard.children')}</h2>
+            <h2 className="text-2xl text-white mb-4">{t('profile.children')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {children.map(child => (
                 <motion.div
                   key={child.id}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => handleChildSelect(child)}
                   className={`p-6 rounded-xl border cursor-pointer transition-colors ${
                     selectedChild?.id === child.id 
                       ? 'border-teal-400 bg-teal-400/10' 
                       : 'border-white/10 hover:border-white/20'
                   }`}
                 >
-                  <h3 className="text-xl text-white mb-2">{child.name}</h3>
-                  <p className="text-white/60">
-                    {t('children.birthDate')}: {new Date(child.birthDate).toLocaleDateString()}
-                  </p>
+                  <div onClick={() => handleChildSelect(child)}>
+                    <h3 className="text-xl text-white mb-2">{child.name}</h3>
+                    <p className="text-white/60">
+                      {t('profile.birthDate')}: {new Date(child.birthDate).toLocaleDateString()}
+                    </p>
+                  </div>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDeleteChild(child.id);
+                    }}
+                    className="mt-4 w-full px-4 py-2 text-red-400 border border-red-400/20 rounded-lg hover:bg-red-400/10"
+                  >
+                    {t('profile.deleteChild')}
+                  </button>
                 </motion.div>
               ))}
             </div>
@@ -363,7 +389,7 @@ const Profile = () => {
           {selectedChild && (
             <section>
               <h2 className="text-2xl text-white mb-4">
-                {t('guests.title')} - {selectedChild.name}
+                {t('profile.guests')} - {selectedChild.name}
               </h2>
               
               {/* Add Guest Form */}
@@ -376,10 +402,10 @@ const Profile = () => {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-white/10">
-                      <th className="text-left p-4 text-white/60">{t('guests.name')}</th>
-                      <th className="text-left p-4 text-white/60">{t('guests.status')}</th>
-                      <th className="text-left p-4 text-white/60">{t('guests.lastUpdate')}</th>
-                      <th className="text-left p-4 text-white/60">{t('guests.actions')}</th>
+                      <th className="text-left p-4 text-white/60">{t('profile.guestName')}</th>
+                      <th className="text-left p-4 text-white/60">{t('profile.guestStatus')}</th>
+                      <th className="text-left p-4 text-white/60">{t('profile.lastUpdate')}</th>
+                      <th className="text-left p-4 text-white/60">{t('profile.actions')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -407,7 +433,7 @@ const Profile = () => {
                                 : 'bg-green-500/20 text-green-400 hover:bg-green-500/30'
                             }`}
                           >
-                            {guest.status === 'in' ? t('guests.checkOut') : t('guests.checkIn')}
+                            {guest.status === 'in' ? t('profile.checkOut') : t('profile.checkIn')}
                           </button>
                         </td>
                       </tr>

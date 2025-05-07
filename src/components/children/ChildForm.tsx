@@ -63,11 +63,11 @@ const ChildForm: React.FC<ChildFormProps> = ({ onChildAdded }) => {
 
   return (
     <div className="bg-white/5 p-6 rounded-xl border border-white/10 mb-6">
-      <h3 className="text-xl text-white mb-4">{t('children.addNew')}</h3>
+      <h3 className="text-xl text-white mb-4">{t('profile.addNewChild')}</h3>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="name" className="block text-white/60 mb-2">
-            {t('children.name')}
+            {t('profile.childName')}
           </label>
           <input
             type="text"
@@ -81,7 +81,7 @@ const ChildForm: React.FC<ChildFormProps> = ({ onChildAdded }) => {
         </div>
         <div className="mb-4">
           <label htmlFor="birthDate" className="block text-white/60 mb-2">
-            {t('children.birthDate')}
+            {t('profile.birthDate')}
           </label>
           <input
             type="date"
@@ -101,7 +101,7 @@ const ChildForm: React.FC<ChildFormProps> = ({ onChildAdded }) => {
           disabled={loading}
           className="bg-teal-400 text-black px-4 py-2 rounded hover:bg-teal-300 transition-colors disabled:opacity-50"
         >
-          {loading ? t('common.loading') : t('children.add')}
+          {loading ? t('common.loading') : t('profile.addNewChild')}
         </button>
       </form>
     </div>
